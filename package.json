@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "vitest --coverage",
-    "dev": "vite",
+    "dev": "concurrently \"vite build --watch --mode development\" \"vite preview --port 3001 --strictPort\"",
     "build": "tsc -b && vite build --mode production",
     "build:dev": "tsc -b && vite build --mode development",
     "build:prod": "tsc -b && vite build --mode production",
@@ -31,6 +31,7 @@
   "devDependencies": {
     "@types/node": "^25.4.0",
     "@vitest/coverage-v8": "^4.0.18",
+    "concurrently": "^9.2.1",
     "jsdom": "^28.1.0",
     "prettier": "^3.8.1",
     "ts-node": "^10.9.2",
