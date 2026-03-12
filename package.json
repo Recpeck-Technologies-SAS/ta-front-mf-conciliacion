@@ -4,7 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest --coverage",
+    "dev": "vite",
+    "build": "tsc -b && vite build --mode production",
+    "build:dev": "tsc -b && vite build --mode development",
+    "build:prod": "tsc -b && vite build --mode production",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "test:coverage": "vitest --coverage --watch=false && NODE_OPTIONS=\"--loader ts-node/esm\" npx ts-node src/checkCoverage.ts",
+    "check:coverage": "NODE_OPTIONS=\"--loader ts-node/esm\" npx ts-node src/checkCoverage.ts",
+    "prettier:write": "prettier --write .",
+    "prettier:check": "prettier --check ."
   },
   "keywords": [],
   "author": "",
@@ -17,5 +27,11 @@
     "react-dom": "^19.2.4",
     "typescript": "^5.9.3",
     "vite": "^7.3.1"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^4.0.18",
+    "prettier": "^3.8.1",
+    "ts-node": "^10.9.2",
+    "vitest": "^4.0.18"
   }
 }
